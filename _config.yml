@@ -1,0 +1,118 @@
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+
+remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme
+
+kramdown:
+  parse_block_html: false
+
+exclude: ['vendor', 'setup.sh', 'jekyll.sh']
+include:
+  - _pages
+
+timezone: America/Los_Angeles
+
+url: https://ucsb-cs8.github.io
+baseurl: "/m19-wang"
+github_url: https://github.com/ucsb-cs8/m19-wang
+
+title: "UCSB CS8"
+course: "CS8"
+qtr: "M19-B"
+quarter: "Summer 2019 Session B"
+
+ta_names: "TBA"
+lab_times: "Mon: 9:30a, 11a, 12:30p, 2p, 3:30p; Tue: 9:30a, 11a"
+instructor: "Richert Wang"
+lecture_times: "TWR 2-3:20pm"
+lecture_location: "BUCHN 1910"
+
+start_week: 1
+start_date: 2019-08-04 
+num_weeks: 6
+extra_exam_week: false
+
+instructor_url: https://ucsb-cs8.github.io/instructor
+
+cal_dates: >
+  [
+  {"label":"Session B starts", "date":"2019-06-24" },
+  {"label":"Univ Holiday", "date":"2019-09-02" },
+  {"label":"Drop deadline (full refund)","date":"2019-08-09" },
+  {"label":"Drop deadline (no W grade)","date":"2019-08-20" },
+  {"label":"Session B Ends", "date":"2019-09-14" },  
+  ]
+
+
+collections:
+  hwk:
+    output: true
+    permalink: /hwk/:path/
+    last_before: false
+  lab:
+    output: true
+    permalink: /lab/:path/
+    last_before: false
+  pa:
+    output: true
+    permalink: /pa/:path/
+    last_before: false
+  exam:
+    output: true
+    permalink: /exam/:path/
+  info:
+    output: true
+    permalink: /info/:path/
+  lectures:
+    output: true
+    permalink: /lectures/:path/
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: default
+  -
+    scope:
+      path: ""
+      type: hwk
+    values:
+      layout: hwk
+  -
+    scope:
+      path: ""
+      type: lab
+    values:
+      layout: lab
+  -
+    scope:
+      path: ""
+      type: pa
+    values:
+      layout: lab
+  -
+    scope:
+      path: ""
+      type: exam
+    values:
+      layout: exam_info
+  -
+    scope:
+      path: ""
+      type: info
+    values:
+      layout: default
+  -
+    scope:
+      path: ""
+      type: lectures
+    values:
+      layout: lecture
+  -
+    scope:
+      path: "syllabus.md"
+      type: info
+    values:
+      layout: handout
