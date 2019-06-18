@@ -1,25 +1,18 @@
 ---
 num: Lecture 1
 lecture_date: 2019-08-06
-desc:
+desc: "Introduction"
 ready: false
 pdfurl:
----
-
----
-num: "Lecture 1"
-desc: "Introduction"
-ready: true
-date: 2018-01-16 14:00:00.00-7:00
 ---
 
 Please read through syllabus for logistics of the course:
 https://ucsb-cs8-w18-wang.github.io/info/syllabus/
 
-```
+
 # CS 8, 1-16-18
 
-'''
+
 In python, we can separate ENGLISH text ("comments") from source
 code by:
     - Preceeding them with a pound, number, sharp, hashtag,...
@@ -65,8 +58,9 @@ VARIABLES
             or underscores
         - Names are case-sensitive ("name" and "NAME" are considered two
             different variables).
-'''
 
+
+```
 x = 10
 print(x) #10
 x = x * 10 # x * 10 is evaluated 1st, then assigned back into variable x
