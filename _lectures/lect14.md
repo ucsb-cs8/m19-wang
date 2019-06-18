@@ -1,4 +1,3 @@
-
 ---
 num: Lecture 14
 lecture_date: 2019-09-04
