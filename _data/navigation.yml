@@ -33,6 +33,9 @@ offerings:
       - title: "M19 ElSherif"
         url: /
         baseurl: /m19-elsherif
+      - title: "S19 Matni"
+        url: /
+        baseurl: /s19-matni
       - title: "W19 Matni"
         url: /
         baseurl: /w19-matni
