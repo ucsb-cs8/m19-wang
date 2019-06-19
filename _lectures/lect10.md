@@ -1,146 +1,169 @@
 ---
 num: Lecture 10
 lecture_date: 2019-08-27
-desc: "More on String Formatting, Random"
+desc: "More on while Loops, 2D Lists"
 ready: false
 pdfurl:
 ---
 
 
+# Recap
+- `while` loops
+- `break` statement
+- `continue` statement
+- `pass` statement
+  - Considered a "no-op" (no-operation). Doesn't do
+    anything, but some functions or conditions require
+    a statement for legal syntax.
 
 ```
-# CS 8, 2-20-18
+# Example
+def f():
+    pass
 
-# Some tools for the labs
-# min, max, round
+print(f())
 
-print(max(15.7,2,16.2,8))
-print(min(16.2,6))
-print("---")
-print(round(14.9999999999))
-print(round(15.5))
-print(round(15.4999999999))
+# Note: exiting a function without a return statement
+# is OK, but the return value is None if the function
+# doesn't return anything.
 
-# STRING FUNCTIONS
-# We've seen several of these - .split(), .strip()
-# We'll introduce some more...
+x = 6
+if x > 5:
+    pass # if this is removed, then a syntax error!
+else:
+    print(x, "<= 5")
+print("continue execution...")
 
-
-s = "CS 8: Intro to Programming"
-'''
-print("Where does the first 'mm' occur in s?")
-print(s.find("mm"))
-print(s.find("jfklahgl"))
-
-text = """This
-string
-has
-multiple
-lines"""
-
-first_newline = text.find("\n")
-print("First newline position:", text.find("\n"))
-print("First line of text:", text[:first_newline])
-print("String after first newline:", text[first_newline + 1:])
-'''
-'''
-# .startswith method
-print("Check if s starts with 'CS':", s.startswith("CS"))
-print("Check if s starts with 'Computer':", s.startswith("Computer"))
-
-# .endswith method
-print("Check if s ends with 'P':", s.endswith("P"))
-print("Check if s ends with 'inG':", s.endswith("inG"))
-print("Check if s ends with 'ing':", s.endswith("ing"))
-
-# .count method
-print("Times 'm' is in s:", s.count("m"))
-print("Times 'i' is in 'Mississippi':", 'Mississippi'.count('i'))
-MS = "Mississippi"
-print("Times 'ss' is in 'Mississippi':", MS.count('ss'))
-
-# .replace method
-print("Change all 'i' to '!' in 'Mississippi':", MS.replace("i", "!"))
-print("Change all ':' to '#' in s:", s.replace(":", "#"))
-print("Remove all 'i' in 'Mississippi':", MS.replace("i",""))
-
-# Strings are immutable (these methods won't change the string)
-print(s)
-print(MS)
-
-# Change the value with reassignment
-s = s.replace("m", "M")
-print(s)
-
-# upper / lower case
-print(s.lower())
-print(s.upper())
-print(s) # still didn't change
-'''
-
-# Examples of String formatting
-
-price = 18.00
-print("The price is ${}. That's cheap!".format(price))
-print("The price is ${}. {}.".format(price,"wow!"))
-print("{3:} {2:} {1:} {0:}".format('a','b','c','d'))
-
-''' Format specification:
-{ : }. Left side of colon say which argument to place into {}
-
-To the right we specify a FIELD WIDTH (i.e., how many spaces/
-columns on the screen to devote to this
-'''
-'''
-print("-->{}<--".format(price))
-print("-->{:20}<--".format(price))
-print("-->{:20}<--".format("18"))
-# We can use '>' or '<' to justify left or right
-print("-->{:<20}<--".format("18"))
-print("-->{:>20}<--".format("18"))
-# we can use '^' to center.
-print("-->{:^20}<--".format("18"))
-'''
-print("-->{:20.2f}<--".format(price))
-# without 'f' , price appears in scientific notation
-
-# More examples
-price = 12345.6
-print("-->{:10.2f}<--".format(price))
-print("-->{:6.2f}<--".format(price))
-
-# can identify specific types that should be expected with
-# 's'- string, 'd' - int, 'f' - float
-name = "Chris Gaucho"
-age = 21
-print("Name is {:12s}; age is {:2d}; price is ${:0.2f}".format(name,age,price))
-print("Name is {:12}; age is {:2}; price is ${:0.2}".format(name,age,price))
-# still works if s,d,f is not included, but removing 'f' will look strange
-
-# Random
-# Useful for many applications (ESPECIALLY GAMES!)
-# Games use Random Number Generator (RNG) defines unpredictable
-# behavior (Lottery, Dice, Random Drops, Simulations, ...)
-
-# Python has a random module that has a random number generator
-# randrange(x,y) is a function that produces a random integer
-# including x up to (but not including) y.
-
-from random import randrange
-
-def rollDie():
-    return randrange(1,7)
-
-diceTally = [0,0,0,0,0,0,0] # 7 because diceTally[0] is not used
-
-for rolls in range(200):
-    value = rollDie()
-    diceTally[value] += 1
-
-def printDistribution(distributionList):
-    for x in range(1,7):
-        #print("{:2d}: ".format(x), distributionList[x])
-        print("{:2d}: ".format(x), '*' * distributionList[x])
-
-printDistribution(diceTally)
+# In general, I find that I rarely use "pass" statements
+# we can write code to avoid having pass statements.
 ```
+
+```
+# Example - A number guessing game
+
+magicNumber = 40
+guess = input("Guessing Game!\nPlease enter an int \
+between 0 - 100 (type 'exit' to end game): ")
+
+while True:
+    if guess == "exit":
+        print("Game over!")
+        break
+    number = int(guess)
+    if number < 0 or number > 100:
+        guess = input("Invalid number. Please try again: ")
+        continue
+    if number < magicNumber:
+        guess = input("Too small. Please try again: ")
+        continue
+    if number > magicNumber:
+        guess = input("Too big. Please try again: ")
+        continue
+    if number == magicNumber:
+        print("Winner winner, chicken dinner!")
+        print("You guessed", magicNumber)
+        break
+print("Done.")
+```
+
+# Two-dimensional Lists (2D Lists)
+
+- Normal Lists: One number is used to index an item
+  - Think of it as a straight line from 0 to N-1 elements
+- 2D Lists
+  - Think of it as a table where two numbers (two
+    dimensions), represented with a row and column
+    can index the items.
+  - Elements can have some logical mapping with respect
+    to the row / column value
+
+- Conceptual example
+  - Computer screens can be represented in a Grid of
+    pixels
+  - Basic color screens can have color values
+    (Red, Green, Blue) for different colors
+  - Monochrome screens (black and white) can be represented
+    as a Grid of black / white pixels
+
+```
+def new_screen(rows, columns):
+    ''' Create and return an empty screen. A list of
+    rows, with each row being a list of pixels going across
+    that row. Initially, all pixels will have the value
+    of 0 (representing black)
+    '''
+    result = []
+    for r in range(rows):
+        result.append([0] * columns)
+    return result
+```
+
+```
+print(new_screen(2,3))
+assert new_screen(2,3) == [ [0,0,0], [0,0,0] ]
+print(new_screen(200,50))
+```
+
+```
+screen = new_screen(10,5)
+print(screen)
+
+def print_screen(grid):
+    for row in range(len(grid)):
+        # Print one row
+        for col in range(len(grid[0])):
+            if grid[row][col] == 0:
+                pixel = ' # '
+            else:
+                pixel = '   '
+            print(pixel, sep='', end='')
+        print() # Newline for the end of the row
+    return
+```
+
+```
+print_screen(screen)
+print()
+screen[2][3] = 1 # set a specific pixel
+print_screen(screen)
+```
+
+```
+
+def set_row(grid, rownum, value):
+    ''' Change the screen so that the specified row has the
+        specified value all the way across.
+    '''
+    for col in range(len(grid[rownum])):
+        grid[rownum][col] = value
+    return
+
+```
+
+```
+set_row(screen, 3, 1)
+print_screen(screen)
+set_row(screen, 7, 1)
+print("-----")
+print_screen(screen)
+```
+
+```
+def set_column(grid, column, value):
+    ''' Change the screen in place so the specified column has the
+        specified value all the way down
+    '''
+    for row in range(len(grid)):
+        grid[row][column] = value
+    return
+
+screen2 = new_screen(10,20)
+print_screen(screen2)
+print("-----")
+set_column(screen2, 7, 1)
+set_column(screen2, 17, 1)
+set_row(screen2, 5, 1)
+print_screen(screen2)
+```
+
+

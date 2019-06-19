@@ -1,167 +1,197 @@
 ---
 num: Lecture 9
 lecture_date: 2019-08-22
-desc: "More on while Loops, 2D Lists"
+desc: "Iterating through lists, Accumulator Pattern, Nested Loops, While Loops"
 ready: false
 pdfurl:
 ---
 
----
-num: "Lecture 9"
+# Common mistakes on the midterm
+- `print("some string")` (removes the quotations when outputting to the console)
+- `1 / 1 = 1.0`  (division returns a float type)
+- `return` statements
+  - A function immediately exits whenever it reaches
+    a `return` statement.
+  - A function can only return one value (but the
+    value could be a collection (such as a list) that
+    contains many values.
 
-ready: true
-date: 2018-02-15 14:00:00.00-7:00
----
+# Accumulator Pattern
 
-```
-# CS 8, 2-15-18
+- Have seen this already in lab, but let's go into more detail.
+- Useful for "accumulating" something while traversing a collection.
 
-''' Recap
-- While loops
-- Break statement
-- Continue statement
-
-- The "pass" statement
-    - Considered a "no-op" (no-operation). Doesn't do
-    anything, but some functions or conditions require
-    a statement for legal syntax.
+Examples:
+- Count the number of times,
+- Count the number of characters in a string
 
 # Example
-def f():
-    pass
 
-print(f())
-
-# Note: exiting a function without a return statement
-# is OK, but the return value is None if the function
-# doesn't return anything.
-
-x = 6
-if x > 5:
-    pass # if this is removed, then a syntax error!
-else:
-    print(x, "<= 5")
-print("continue execution...")
-
-# In general, I find that I rarely use "pass" statements
-# we can write code to avoid having pass statements.
-'''
-
-'''
-# Example - A number guessing game
-
-magicNumber = 40
-guess = input("Guessing Game!\nPlease enter an int \
-between 0 - 100 (type 'exit' to end game): ")
-
-while True:
-    if guess == "exit":
-        print("Game over!")
-        break
-    number = int(guess)
-    if number < 0 or number > 100:
-        guess = input("Invalid number. Please try again: ")
-        continue
-    if number < magicNumber:
-        guess = input("Too small. Please try again: ")
-        continue
-    if number > magicNumber:
-        guess = input("Too big. Please try again: ")
-        continue
-    if number == magicNumber:
-        print("Winner winner, chicken dinner!")
-        print("You guessed", magicNumber)
-        break
-print("Done.")
-'''
-
-''' Two-dimensional Lists (2D Lists)
-- Normal Lists: One number is used to index an item
-    - Think of it as a straight line from 0 to N-1 elements
-- 2D Lists
-    - Think of it as a table where two numbers (two
-    dimensions), represented with a row and column
-    can index the items.
-    - Elements can have some logical mapping with respect
-    to the row / column value
-
-- Conceptual example
-    - Computer screens can be represented in a Grid of
-    pixels
-    - Basic color screens can have color values
-    (Red, Green, Blue) for different colors
-    - Monochrome screens (black and white) can be represented
-    as a Grid of black / white pixels
-'''
-def new_screen(rows, columns):
-    ''' Create and return an empty screen. A list of
-    rows, with each row being a list of pixels going across
-    that row. Initially, all pixels will have the value
-    of 0 (representing black)
-    '''
-    result = []
-    for r in range(rows):
-        result.append([0] * columns)
-    return result
-
-'''
-print(new_screen(2,3))
-assert new_screen(2,3) == [ [0,0,0], [0,0,0] ]
-print(new_screen(200,50))
-'''
-screen = new_screen(10,5)
-print(screen)
-
-def print_screen(grid):
-    for row in range(len(grid)):
-        # Print one row
-        for col in range(len(grid[0])):
-            if grid[row][col] == 0:
-                pixel = ' # '
-            else:
-                pixel = '   '
-            print(pixel, sep='', end='')
-        print() # Newline for the end of the row
-    return
-
-'''
-print_screen(screen)
-print()
-screen[2][3] = 1 # set a specific pixel
-print_screen(screen)
-'''
-
-#print(screen)
-
-def set_row(grid, rownum, value):
-    ''' Change the screen so that the specified row has the
-        specified value all the way across.
-    '''
-    for col in range(len(grid[rownum])):
-        grid[rownum][col] = value
-    return
-
-'''
-set_row(screen, 3, 1)
-print_screen(screen)
-set_row(screen, 7, 1)
-print("-----")
-print_screen(screen)
-'''
-
-def set_column(grid, column, value):
-    ''' Change the screen in place so the specified column has the
-        specified value all the way down
-    '''
-    for row in range(len(grid)):
-        grid[row][column] = value
-    return
-
-screen2 = new_screen(10,20)
-print_screen(screen2)
-print("-----")
-set_column(screen2, 7, 1)
-set_column(screen2, 17, 1)
-set_row(screen2, 5, 1)
-print_screen(screen2)
 ```
+listOfStrings = ["this", "is", "a", "list", "of", "strings"]
+numList = [8,2,6,4,0]
+
+def computeLengthManually(someList):
+    """ count the number of items in the list manually """
+    elements = 0
+    for e in someList:
+        elements += 1 # elements = elements + 1
+    return elements
+
+print(computeLengthManually(listOfStrings))
+print(computeLengthManually(numList))
+```
+
+
+# Another Example
+
+```
+sentence = '''
+This is a pretty long sentence, with many many words and
+letters, and a bad example of what good sentence structure
+would look like, so don't do this
+'''
+print(sentence)
+
+print(sentence.split())
+# split() "splits" a string into a list of strings
+# separated by ' ', '\n', or '\t' (whitespace)
+
+print(sentence.split(','))
+# split(',') "splits" the string into a list of strings
+# separated by ','
+# Notice that commas are removed from the actual values
+# May be useful for comma separated value (csv) formats
+
+# strip() string method
+# Removes the whitespace at the beginning and end of
+# strings
+x = "     abc    "
+print("---" + x + "---")
+print("---" + x.strip() + "---") # removes whitespaces at ends
+
+y = "--,!'fj,ka--"
+print(y.strip("-,!'")) # removes these characters from
+                       # the beginning and end
+```
+
+```
+sentence = '''
+This is a pretty long sentence, with many many words and
+letters, and a bad example of what good sentence structure
+would look like, so don't do this
+'''
+
+# Example
+
+def countLongWords(someString):
+    ''' counts words longer than 5 characters '''
+    counter = 0
+    words = someString.split()
+    for w in words:
+        if len(w) > 5:
+            counter += 1
+    return counter
+
+print(countLongWords(sentence))
+```
+
+# Nested Loops
+- Depending on how data is organized, it's common to see
+  loops within loops.
+- For example, given a list of strings, we may want to
+  manually count how many vowels exist throughout the list
+
+
+# Nested-for loop example
+
+```
+listOfStrings = ["this", "is", "a", "list", "of", "strings"]
+
+def countVowels(strList):
+    """ Count vowels in list of strings """
+    vowels = "AEIOUaeiou"
+    numVowels = 0
+    for s in strList:   # s is an str element in strList
+        for c in s:     # c is a character in s
+            if c in vowels:
+                numVowels += 1
+    return numVowels
+
+print(countVowels(listOfStrings))
+```
+
+# `while` Loop
+
+- Another looping construct we'll use in this class
+- `while` loops are used when you want to repeat a set of statements indefinitely
+  - Note: the number of times that goes through the
+    loop is independent on the number of elements in a
+    collection.
+  - Examples: Web servers, OSes, ...
+
+Syntax:
+
+```
+while BOOLEAN_EXPRESSION:
+    STATEMENT(S)
+```
+
+# Semantics:
+
+- if BOOLEAN_EXPRESSION is true, perform statements in the
+  body of the loop
+- if BOOLEAN EXPRESSION is false, skip the loop entirely
+  and continue execution.
+- Keyword `break`
+  - It's possible to exit the loop and jump out of it
+    using the break statement
+
+```
+while True: #Loop forever - common in some UI/Game/servers
+    # Somewhere in the middle, we can change our mind
+    # and check to see if we want to break out
+    if BOOLEAN_EXPRESSION:
+        break
+    ...
+```
+
+
+# Example
+
+```
+x = 0
+while True:
+    x = x + 1
+    print("Start of while body, x =", x)
+    if x > 3:
+        break
+    print("End while body, x =", x)
+    print("------")
+print("outside of while loop")
+```
+
+# Keyword `continue`
+
+It's possible to check and see if you want to
+continue executing the loop body, or go back
+and evaluate.
+
+# Example
+
+```
+x = 0
+while True:
+    x = x + 1
+    print("Start of while body, x=",x)
+    if x % 2 == 0: #if x is even
+        continue
+    if x >= 5:
+        break
+    print("End of while body, x=", x)
+    print("------")
+print("Outside while loop")
+```
+
+
+

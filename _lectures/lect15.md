@@ -1,121 +1,203 @@
 ---
 num: Lecture 15
 lecture_date: 2019-09-05
-desc: "Final Review"
+desc: "More on Sets and Dictionaries"
 ready: false
 pdfurl:
 ---
 
-''' CS 8 Final Exam Review
-- Final Exam: Tuesday 3/20, 4pm - 7pm, BUCHN 1920
-- Exam will be longer than the midterm (~ twice as long, ~ 2 hours)
-- Exam is cumulative (covers everything from print statements
-to complex data structures)
-- Logistics
-    - Bring writing utensil (dark led or pen)
-    - Bring your student ID
-    - No electronic devices
-    - Closed and closed notes
-- Structure of final is similar to the midterms. Types of questions:
-    - Evaluate expressions
-    - Evaluate types
-    - Given code, what is the output
-    - Short answer / definitions
-    - Read / write assert statements
-    - Complete function definitions / write python statements
-    - Fill-in-the-blank
-        - complete function definition key terms
-        - pass in specific paramaters
-        - etc.
-    - General Advice
-        - Read instructions carefully - pay close attention to
-        what is being asked
-        - Double-check your work
 
-Advice on how to prepare
-    - Lecture notes (important to know topics, examples,
-    concepts).
-        - Type out the code and understand the output
-    - Understanding labs and being able to implement them
-    - Reading the textbook for additional details and
-    understanding
-        - Do the examples to solidify understanding
-    - Homework exercises
-    - Prototyping - "I wonder how python behaves when ..."
-        - write a simple example
-        - Helps with code practice as well as understanding the
-        language and edge cases
+# Last time
 
-Overview of topics covered after midterm 2
+- Introduced Dictionaries
+- Introduced Sets
+- Today: Continue with some set operations
+- Talk about BENCHMARKING
 
-File I/O
-    - Read file (infile = open('example.txt', 'r'))
-        - infile.read()
-        - infile.read(n)
-        - infile.readlines()
-        - infile.readline()
-        - for a_line in infile
-    - Write file (outfile = open('example.txt', 'w'))
-    - Append file (outfile = open('example.txt', 'a'))
 
-Dictionaries
-    - key / value pairs
-    - Creating a dictionary
-    - Adding to a dictionary
-    - dictionary methods
-        - .pop(key)
-        - .update(D2)
-        - .get(key)
-        - .keys()
-        - .values()
-        - .items()
+```
+s2 = set([2,4,6])
+s3 = set([4,5,6])
 
-Sets
-    - Collection of items with no duplicates
-    - Creating an empty set or a set from a list
-    - Set operators
-        - in, not in, combine(|), intersection(&), difference(-),
-        unique(^)
-    - Set comparisons
-        - ==, !=, proper subset (<), subset (<=)
-    - Set methods
-        - .add, .remove (what happens if item doesn't exist?),
-        .discard, .clear
+# Set comparisons
+print(s2 == s2)             # True
+print(s2 == s3)             # False
+print(s2 != s3)             # True
+print({1,2} < {1,2,3})      # True, < indicates "proper" subset
+print({1,2,3} < {1,2,3})    # False
+print({1,2} > {1})          # True
+print({1,2,3} > {1,2})      # True
+print({1,2,3} >= {1,2,3})   # True
+print({1,2,3} >= {2})       # True , <= indicates a subset
 
-Embedded structures
-    - Dictionary map to dictionary, or dictionary map to set,
-    or list of dictionaries, etc.
+print({1,2,4} == {2,1,4})   # True , order doesn't matter
 
-Recursion
-    - Properties of recursion
-        - base case
-        - recursive calls getting "closer" to base case
-    - Examples in class and lab
-        - print
-        - reconstruct lists and strings (reverse a string or list)
-        - computing values (factorial, fibonacci, ...)
-        - etc.
+# Set methods:
+s2.add(100)
+print(s2)
+s2.add(100) # Doesn't add duplicates
+print(s2)
+s2.remove(2)
+print(s2)
+#s2.remove(10101) # ERROR, 10101 does not exist
+s2.discard(10101) # same as remove, but doesn't crash if not there
+s2.clear()
+print(s2)
 
-Topics covered before midterm 2 (refer to previous lecture notes)
-- Python data types
-- Arithmetic
-- Python built-in functions
-- Comparison operators
-- Boolean operators
-- Strings
-- Lists
-- Tuples
-- User-defined functions
-- Namedtuples
-- Testing (assert / pytest)
-- For loops
-- Nested control structures
-- Accumulator Patterns
-- Nested (double) for loops
-- While loops
-    - Break, continue, pass
-- 2D Lists
-- String functions and formatting
-- Random
+# Example - Performance in searching through lists vs dict.
+# wordlist.txt (a list of words, one per line)
+# PeterPan.txt (Peter Pan novel in a .txt file)
+
+# Gutenberg.org - classic books in text!
+# https://www.gutenberg.org/browse/scores/top
+# Example using today is: Peter Pan
 '''
+DICT = {}
+infile = open("wordlist.txt", 'r')
+for x in infile:
+    DICT[x.strip()] = 0
+infile.close()
+
+LIST = []
+for y in DICT:
+    LIST.append(y)
+
+from time import process_time
+
+# Algorithm 1 - Dictionaries
+infile = open("PeterPan.txt", 'r')
+largeText = infile.read()
+infile.close()
+words = largeText.split()
+counter = 0
+
+start = process_time()
+for x in words:
+    x = x.strip("\"\'()[]{},.?!<>:;-")
+    if x in DICT: # Search the dictionary
+        counter += 1
+end = process_time()
+
+print(counter)
+print("Time elapsed with DICT (in seconds):",
+      end - start)
+
+# Algorithm 2 - LISTS
+# using words from Algorithm 1
+
+counter = 0
+start = process_time()
+for x in words:
+    x = x.strip("\"\'()[]{},.?!<>:;-")
+    if x in LIST: # Search through LIST
+        counter += 1
+end = process_time()
+print(counter)
+print("Time elapsed with LIST (in seconds):",
+      end - start)
+```
+
+
+# Dictionaries within Dictionaries!
+
+
+- We want to keep track of all students who are
+  enrolled in specific courses.
+- schedule is a dictionary with the class name mapping to another dictionary for each class
+- the dictionary for each class maps to another dictionary of students
+- the dictionary of students maps each student studentID to a student namedtuple
+
+
+```
+from collections import namedtuple
+
+Student = namedtuple('Student', 'name id')
+
+s1 = Student("Richert", 1234567)
+s2 = Student("John Doe", 7654321)
+s3 = Student("Jane Doe", 5555555)
+s4 = Student("Mr. E", 1111111)
+s5 = Student("Chris Gaucho", 2222222)
+```
+
+
+- schedule is mapped by course keys to a dictionary
+  of students.
+- inner-dictionary has student IDs mapped to
+  student namedtuples
+  
+```
+schedule = {'CS8':{}, 'CS16':{}, 'CS24':{}}
+
+def print_schedule():
+    ''' Prints the course schedule and all students enrolled
+        - Iterate through key/value pairs using two variables
+        - 1st variable is key, 2nd variable is value
+    '''
+    for course, students in schedule.items():
+        print("{:6s}:\n\t".format(course), end="")
+        for studentId, student in students.items():
+            print("ID: {:7d}, Name: {}\n\t".format(
+                studentId, student.name), end="")
+        print()
+
+#print_schedule()
+
+def add_student(course, student):
+    ''' Adds a student to a class '''
+    enrolled_students = schedule.get(course)
+
+    if enrolled_students == None:
+        print("Course does not exist")
+        return
+
+    enrolled_students[student.id] = student
+
+# Sanity check
+#add_student('CS8', s2)
+#add_student('CS8', s1)
+#add_student('CS16', s3)
+#print_schedule()
+
+def add_course(course):
+    if schedule.get(course) == None:
+        schedule[course] = {}
+
+def remove_course(course):
+    schedule.pop(course)
+
+def remove_student(course, student):
+    enrolled_students = schedule.get(course)
+
+    if enrolled_students == None:
+        print(course, "does not exist")
+        return
+    enrolled_students.pop(student.id)
+
+print('*' * 20)
+print_schedule()
+print('*' * 20)    
+add_student('CS8', s1)
+add_student('CS8', s2)
+add_student('CS16', s3)
+add_student('CS24', s4)
+print_schedule()
+print('*' * 20)
+
+add_course("CS32")
+add_student("CS32", s5)
+print_schedule()
+print('*' * 20)
+
+remove_course('CS8')
+print_schedule()
+print('*' * 20)
+
+add_course('CS8')
+print_schedule()
+print('*' * 20)
+
+#remove_course("PSTAT120")  # Error, does not exist
+#print_schedule()
+#print('*' * 20)
 ```
