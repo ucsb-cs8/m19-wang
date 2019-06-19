@@ -1,10 +1,11 @@
 ---
+assigned: 2019-08-08
+desc: FtoC and CtoF with test cases
+due: 2019-08-09 23:59
 layout: lab
 num: lab01
 ready: false
-desc: "FtoC and CtoF with test cases"
-assigned: 2019-08-08
-due: 2019-08-09 23:59
+
 ---
 
 In this lab, you'll practice:

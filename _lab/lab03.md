@@ -1,10 +1,11 @@
 ---
+assigned: 2019-08-16
+desc: Conditionals, Nested Control Structures, and Loops
+due: 2019-08-23 23:59
 layout: lab
 num: lab03
-ready: true
-desc: "Conditionals, Nested Control Structures, and Loops"
-assigned: 2019-08-16
-due: 2019-08-23 23:59
+ready: false
+
 ---
 
 In this lab, you'll get more practice with:

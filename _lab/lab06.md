@@ -1,10 +1,11 @@
 ---
+assigned: 2019-08-26
+desc: String Formatting, Random, and File IO
+due: 2019-09-01 23:59
 layout: lab
 num: lab06
-ready: true
-desc: "String Formatting, Random, and File IO"
-assigned: 2019-08-26
-due: 2019-09-01 23:59
+ready: false
+
 ---
 
 In this lab, you'll get more practice with:

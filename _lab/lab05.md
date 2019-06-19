@@ -1,10 +1,11 @@
 ---
+assigned: 2019-08-22
+desc: 2D Lists and Nested for Loops
+due: 2019-08-30 23:59
 layout: lab
 num: lab05
-ready: true
-desc: "2D Lists and Nested for Loops"
-assigned: 2019-08-22 
-due: 2019-08-30 23:59
+ready: false
+
 ---
 
 In this lab, you'll get more practice with:

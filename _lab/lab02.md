@@ -1,10 +1,11 @@
 ---
+assigned: 2019-08-11
+desc: Writing Functions, Tests, and using tkinter
+due: 2019-08-18 23:59
 layout: lab
 num: lab02
-ready: true
-desc: "Writing Functions, Tests, and using tkinter"
-assigned: 2019-08-11
-due: 2019-08-18 23:59
+ready: false
+
 ---
 
 In this lab, you'll get more practice with:

@@ -1,10 +1,11 @@
 ---
+assigned: 2019-08-28
+desc: 'Scrabble word finder: Python lists, dictionaries and file I/O'
+due: 2019-09-06 23:59
 layout: lab
 num: lab07
-ready: true
-desc: "Scrabble word finder: Python lists, dictionaries and file I/O"
-assigned: 2019-08-28 
-due: 2019-09-06 23:59
+ready: false
+
 ---
 
 In this lab, you'll get more practice with:
