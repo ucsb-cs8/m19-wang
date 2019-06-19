@@ -1,11 +1,10 @@
 ---
 assigned: 2019-08-07 14:00
-desc: 'Perkovic 3.3 (User-Defined Functions) 3.4 (Python Variables and Assignments)
-
-  3.5 (Parameter Passing)'
+desc: Perkovic 3.3 (User-Defined Functions) 3.4 (Python Variables and Assignments)
+  3.5 (Parameter Passing)
 due: 2019-08-15 14:00
 num: h05
-ready: false
+ready: true
 
 ---
 
