@@ -23,9 +23,9 @@ main_dropdown:
 
 
 offerings:
-   title: "W19 Mirza"
+   title: "W19 Wang"
    url: /	
-   baseurl: /w19-mirza
+   baseurl: /w19-wang
    items:
       - title: "M19 Wang"
         url: /
