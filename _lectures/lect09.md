@@ -1,14 +1,14 @@
 ---
 num: Lecture 9
 lecture_date: 2019-08-22
-desc:
+desc: "More on while Loops, 2D Lists"
 ready: false
 pdfurl:
 ---
 
 ---
 num: "Lecture 9"
-desc: "More on while Loops, 2D Lists"
+
 ready: true
 date: 2018-02-15 14:00:00.00-7:00
 ---

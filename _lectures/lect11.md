@@ -1,17 +1,12 @@
 ---
 num: Lecture 11
 lecture_date: 2019-08-28
-desc:
+desc: "File I/O, Midterm 2 Review"
 ready: false
 pdfurl:
 ---
 
----
-num: "Lecture 11"
-desc: "File I/O, Midterm 2 Review"
-ready: true
-date: 2018-02-27 14:00:00.00-7:00
----
+
 
 ```
 # CS 8, 2-27-18

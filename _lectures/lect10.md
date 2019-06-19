@@ -1,17 +1,12 @@
 ---
 num: Lecture 10
 lecture_date: 2019-08-27
-desc:
+desc: "More on String Formatting, Random"
 ready: false
 pdfurl:
 ---
 
----
-num: "Lecture 10"
-desc: "More on String Formatting, Random"
-ready: true
-date: 2018-02-20 14:00:00.00-7:00
----
+
 
 ```
 # CS 8, 2-20-18

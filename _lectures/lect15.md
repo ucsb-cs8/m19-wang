@@ -1,20 +1,10 @@
 ---
 num: Lecture 15
 lecture_date: 2019-09-05
-desc:
+desc: "Final Review"
 ready: false
 pdfurl:
 ---
-
----
-num: "Lecture 15"
-desc: "Final Review"
-ready: true
-date: 2018-03-15 14:30:00.00-7:00
----
-
-```
-# CS 8, 3-15-18
 
 ''' CS 8 Final Exam Review
 - Final Exam: Tuesday 3/20, 4pm - 7pm, BUCHN 1920

@@ -1,14 +1,14 @@
 ---
 num: Lecture 13
 lecture_date: 2019-09-03
-desc:
+desc: "More on Sets and Dictionaries"
 ready: false
 pdfurl:
 ---
 
 ---
 num: "Lecture 13"
-desc: "More on Sets and Dictionaries"
+
 ready: true
 date: 2018-03-08 14:30:00.00-7:00
 ---

@@ -1,17 +1,11 @@
 ---
 num: Lecture 12
 lecture_date: 2019-08-29
-desc:
+desc: "Sets and Dictionaries"
 ready: false
 pdfurl:
 ---
 
----
-num: "Lecture 12"
-desc: "Sets and Dictionaries"
-ready: true
-date: 2018-03-06 14:30:00.00-7:00
----
 
 ```
 # CS 8, 3-6-18

@@ -1,17 +1,12 @@
 ---
 num: Lecture 8
 lecture_date: 2019-08-21
-desc:
+desc: "Iterating through lists, Accumulator Pattern, Nested Loops, While Loops"
 ready: false
 pdfurl:
 ---
 
----
-num: "Lecture 8"
-desc: "Iterating through lists, Accumulator Pattern, Nested Loops, While Loops"
-ready: true
-date: 2018-02-13 14:00:00.00-7:00
----
+
 
 ```
 # CS 8, 2-13-18
