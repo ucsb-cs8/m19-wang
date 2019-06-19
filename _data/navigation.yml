@@ -42,6 +42,9 @@ offerings:
       - title: "W19 Mirza"
         url: /
         baseurl: /w19-mirza
+      - title: "W19 Conrad"
+        url: /
+        baseurl: /w19-conrad
 
 offering_links:
   - title: Assignments
