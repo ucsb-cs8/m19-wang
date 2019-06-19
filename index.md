@@ -1,5 +1,5 @@
 ---
-title: "CS8, W19, Mirza"
+title: "CS8, M19 Session B, Wang"
 ---
 
 
