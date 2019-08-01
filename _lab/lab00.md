@@ -43,11 +43,11 @@ If you ever forget the password to your ECI/CSIL account, you can reset it here:
 
 If your account doesn't work, ask a TA for assistance.
 
-Phelps 3525 is only available during your weekly scheduled discussion section and during Winter 2018, on Mondays 1-5pm, Thursdays 12-3pm, and Fridays 1-5pm.
+Phelps 3525 is only available during your weekly scheduled lab section during Summer Session B 2019, on Mondays 9:30am-4:50pm, Tuesdays 9:30am-12:20pm, and an optional Fridays 2:00-4:00pm.
 
 At other times during the week, you can work in CSIL, the &quot;Computer Science Instructional Lab&quot;.
 
-The CSIL lab, by the way, is on the ground floor of Harold Frank Hall.  The glass front doors of Harold Frank Hall look out towards the ocean.  Stand just outside those doors with your back towards the ocean.   The doors to the CSIL lab are just on your right.  (If you can't look over your shoulder and see an great big tree, with the ocean just behind it, you are on the wrong side of the building.)   Hours vary--its open almost all the time during the regular school year
+The CSIL lab, by the way, is on the ground floor of Harold Frank Hall. The glass front doors of Harold Frank Hall look out towards the ocean. Stand just outside those doors with your back towards the ocean. The doors to the CSIL lab are just on your right. (If you can't look over your shoulder and see an great big tree, with the ocean just behind it, you are on the wrong side of the building.) Hours vary -- its open almost all the time during the regular school year
 
 ## Step 2: Bring up a "terminal" 
  
@@ -178,7 +178,7 @@ We will save the file under the name `hello.py`&mdash;it is <strong>very importa
 That's it!   Now, you can also add, on the first line, a *comment* with your name, and information about the course, for example:
 
 ```python
-# Chris Gaucho, for CMPSC 8, Winter 2018
+# Chris Gaucho, for CMPSC 8, Summer Session B 2019
 print ('Hello, World!')
 ```
 
@@ -201,7 +201,7 @@ Next, we'll try submitting our program to Gradescope, which is a new autograder 
 
 ### Creating your Gradescope account
 
-I have manually added everyone (using your @umail.ucsb.edu accounts) currently enrolled in the course to the Gradescope system. You should have received an email from the Gradescope system asking you to create a password. Once you follow the instructions to set your password, you should have access to the autograding system. You should see "CMPSC 8" in your Winter 2018 Courses.
+I have manually added everyone (using your @umail.ucsb.edu accounts) currently enrolled in the course to the Gradescope system. You should have received an email from the Gradescope system asking you to create a password. Once you follow the instructions to set your password, you should have access to the autograding system. You should see "CMPSC 8" in your Summer 2019 Courses.
 
 The lab assignment "Lab00" should appear in your Gradescope dashboard in CMPSC 8. If you haven't submitted anything for this assignment yet, Gradescope will prompt you to upload your files. This prompt is shown below:
 
