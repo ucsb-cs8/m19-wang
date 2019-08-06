@@ -6,9 +6,11 @@ ready: true
 
 # Professor {{site.instructor}}'s Office Hours
 
-* Location: TBA
-* Time: TBA
+* Location: HFH 1151
+* Time: Wed 12:30pm - 1:30pm
 
+* Location: Phelps 3525 (optional lab section)
+* Time: Fri 2pm - 4pm
 
 # Lab Hours
 
