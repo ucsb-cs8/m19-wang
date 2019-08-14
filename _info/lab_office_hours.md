@@ -15,7 +15,7 @@ ready: true
 # TA Office Hours
 
 <b>Kevin Burk (Trailer 936 Room 103/104)</b>
-* Wednesdays 3:30 - 4:30pm 
+* Tuesdays 3:30 - 4:30pm 
 
 <b>Ran Liu (Trailer 936 Room 103/104)</b>
 * Wednesdays 9:30 - 10:30am 
