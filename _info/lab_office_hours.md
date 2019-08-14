@@ -14,16 +14,16 @@ ready: true
 
 # TA Office Hours
 
-<b>Kevin Burk (Trailer 936 Room 103/104)</b>
+<b>Kevin Burk (CSIL)</b>
 * Tuesdays 3:30 - 4:30pm 
 
-<b>Ran Liu (Trailer 936 Room 103/104)</b>
+<b>Ran Liu (CSIL)</b>
 * Wednesdays 9:30 - 10:30am 
 
-<b>Mahmoud Namazi (Trailer 936 Room 103/104)</b>
+<b>Mahmoud Namazi (CSIL)</b>
 * Tuesdays 3:30 - 4:30pm
 
-<b>Yuke Wang (Trailer 936 Room 103/104)</b>
+<b>Yuke Wang (CSIL)</b>
 * Thursdays 3:30 - 4:30pm
 
 <b>Yun Zhao (BIOENG 3205)</b>
@@ -32,5 +32,5 @@ ready: true
 # Lab Hours
 
 * Closed labs will be held in Phelps 3525 on {{ site.lab_times}}.
-* Open lab time is available in CSIL (ocean side of Harold Frank Hall).  See the posted hours on the door for available times.
+* CSIL (ocean side of Harold Frank Hall) hours are posted on the door.
 
