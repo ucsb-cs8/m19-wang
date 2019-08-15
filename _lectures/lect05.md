@@ -104,8 +104,7 @@ for var in list:
 print("out of for loop")
 print("continuing execution")
 
-# Another example by manually updating a variable in the loop
-
+# Example of defining function and iterating through a list
 def hasOddNumber(list):
     ''' Returns True if the list has an odd number.
         Returns False otherwise.'''
