@@ -121,13 +121,18 @@ def hasOddNumber(list):
 numbers1 = [2,4,5,6,8]
 numbers2 = [0,10,20,30]
 numbers3 = []
+
+# Testing by Observation
 print(hasOddNumber(numbers1))
 print(hasOddNumber(numbers2))
 print(hasOddNumber(numbers3))
 
+# Testing using assertions
 assert hasOddNumber(numbers1) == True
 assert hasOddNumber(numbers2) == False
 assert hasOddNumber(numbers3) == False
+
+# For practice, try defining pytest functions and run these with pytest
 """
 """
 Range
