@@ -1,5 +1,6 @@
-# lab03_tests.py
+# Student(s): (insert name and perm number here)
 
+# lab03_tests.py
 
 from lab03 import notStringContainingR
 
